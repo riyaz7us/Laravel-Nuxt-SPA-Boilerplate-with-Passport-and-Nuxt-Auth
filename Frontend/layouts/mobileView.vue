@@ -7,7 +7,7 @@
       </v-btn>
       <!-- Site Title -->
       <nuxt-link to="/">
-        <h4>LOGO</h4>
+        <v-img width="140px" src="/acumenconnect-logo.png" />
       </nuxt-link>
       <v-spacer></v-spacer>
       <!-- Auth Buttons -->

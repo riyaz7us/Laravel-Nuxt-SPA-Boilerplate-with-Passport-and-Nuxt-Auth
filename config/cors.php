@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*','localhost:3000'],
+    'allowed_origins' => ['*','localhost:3000','acumen.test'],
 
     'allowed_origins_patterns' => [],
 

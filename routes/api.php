@@ -32,3 +32,20 @@ Route::group(
         });
     }
 );
+
+Route::get('signature/{meeting_number}','ZoomController@generate_signature');
+Route::get('programs','ProgramController@index');
+Route::get('programs/{id}', 'ProgramController@show');
+Route::get('programs/{id}/live-session', 'ProgramController@getLiveSession');
+Route::get('programs/{id}/industrial-visit', 'ProgramController@getIndustrialVisit');
+Route::post('programs','ProgramController@store');
+Route::post('programs/live_session','ProgramController@createLiveSession');
+Route::put('programs/{program}','programcontroller@update');
+Route::get('icp','IcpController@show');
+Route::post('icp','IcpController@update');
+Route::post('images','ImageController@addImage');
+Route::post('images/delete','ImageController@deleteImage');
+Route::post('images/replace', 'ImageController@replaceImage');
+Route::get('videos', 'ZoomController@streamVideo');
+Route::post('videos', 'ZoomController@uploadVideo');
+Route::get('testimonials', 'IcpController@showTestimonials');

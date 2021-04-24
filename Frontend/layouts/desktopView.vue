@@ -3,34 +3,34 @@
     <v-app-bar
       hide-on-scroll
       app
-      color="secondary"
       light
+      color="white"
       elevate-on-scroll
       height="70"
     >
       <!-- title #00CCCC -->
-      <nuxt-link to="/">
-        <h4>LOGO</h4>
+      <nuxt-link style="text-decoration:none;color:unset;" to="/">
+        <v-img width="140px" src="/acumenconnect-logo.png" />
       </nuxt-link>
       <!-- 
         *** 💻 DESKTOP VIEW ITEMS ***
       -->
       <v-spacer></v-spacer>
       <!-- Dark theme button if you need -->
-      <v-btn dark @click="$vuetify.theme.dark = !$vuetify.theme.dark" icon>
-        <v-icon>mdi-moon-waning-crescent mdi-rotate-315</v-icon>
-      </v-btn>
+      <v-btn text class="font-weight-bold" color="primary">Home</v-btn>
+      <v-btn text class="font-weight-bold" color="primary">Explore Programs</v-btn>
+      <v-btn text class="font-weight-bold" color="primary">Companies</v-btn>
+      <v-btn text class="font-weight-bold" color="primary">Campus</v-btn>
       <!-- Auth Template -->
       <template v-if="$auth.loggedIn">
-        <userMenu color="white" />
+        <userMenu />
       </template>
-      <v-btn color="white" text to="/login" v-else>
-        <v-icon>mdi-login</v-icon>Login
+      <template v-else>
+      <v-btn text class="font-weight-bold" color="primary">Login</v-btn>
+      <v-btn dark color="accent" class="glow-accent rounded-lg" to="/signup">
+        <v-icon>login</v-icon>&nbsp;Sign Up
       </v-btn>
-      <!-- Nav Drawer -->
-      <v-btn color="white" icon @click.stop="drawer = !drawer">
-        <v-icon>mdi-sort-variant mdi-flip-h</v-icon>
-      </v-btn>
+      </template>
     </v-app-bar>
     <!-- 🔥 MAIN RENDER [ADDED MIN HEIGHT TO PREVENT LARGE LAYOUT SHIFTS] -->
     <v-main style="min-height: 100vh">
@@ -58,3 +58,7 @@ export default {
   }, //components
 };
 </script>
+
+<style lang="scss">
+
+</style>

@@ -1,3 +1,19 @@
 /**
 * In case you get angry, curse your css/scss here
 */
+body::-webkit-scrollbar {
+  width: 0.5em !important;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #05303c;
+	border-radius: 60px;
+}
+
+.glow-accent{
+  box-shadow: 0px 10px 20px -10px #FC6D5A !important;
+}

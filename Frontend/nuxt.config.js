@@ -19,14 +19,32 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Material+Icons"
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap"
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["./assets/styles.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: "~/plugins/TiptapVuetify", mode: "client" },
+    { src: "~/plugins/zoom-sdk", mode: "client" }
+  ],
 
   /**
    * Nuxt Loading Indicator
@@ -48,19 +66,19 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    "nuxt-laravel",
+    //"nuxt-laravel",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
-    "@nuxtjs/auth",
+    "@nuxtjs/auth"
   ],
-  laravel:{
+  /*laravel: {
     root: "../"
-  },
+  },*/
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.api_url
+    baseURL: process.env.api_url || "http://acumen.test/api/"
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -92,16 +110,20 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
+    defaultAssets: {},
+    options: {
+      customProperties: true
+    },
     theme: {
       light: true,
       themes: {
         light: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
+          primary: "#156873",
+          accent: "#FC6D5A",
+          secondary: "#05303c",
+          info: colors.blueGrey.lighten1,
+          warning: "#f3c13c",
+          error: "#000000",
           success: colors.green.accent3
         }
       }
@@ -110,6 +132,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, {}) {
+      config.node = {
+        fs: "empty"
+      };
+    },
+    transpile: ["vuetify/lib", "tiptap-vuetify"],
     loaders: {
       cssModules: {
         modules: {

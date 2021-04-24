@@ -1,4 +1,11 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 // The variables you want to modify
-// $font-size-root: 20px;
+ $font-size-root: 1.1em;
+	
+$body-font-family: "Lato","Calibri","Roboto","Sans Serif";
+$heading-font-family: "Lato","Calibri","Roboto","Sans Serif";
+
+ .body-a{font-size:1.2em;margin-bottom:2em;}
+ br{display:block;margin:12px 0}
+ .justify-inter-word{text-justify:inter-word !important;text-align:justify !important;}

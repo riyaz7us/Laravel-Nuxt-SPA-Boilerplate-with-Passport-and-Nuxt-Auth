@@ -8,12 +8,23 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "@zoomus/websdk": "^1.9.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "moment": "^2.29.1",
+    "nuxt": "^2.14.12",
+    "tiptap-vuetify": "^2.24.0",
+    "videojs-youtube": "^2.6.1",
+    "vue-slick-carousel": "^1.0.6",
+    "webex": "^1.118.15"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3",

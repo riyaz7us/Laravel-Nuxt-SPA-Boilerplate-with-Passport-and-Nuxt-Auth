@@ -3,13 +3,13 @@
     dark
     padless
     inset
-    style="border-top:5px solid #45526e"
+    style="border-top: 5px solid #7ebda7"
     class="justify-center pl-0 pr-0"
   >
     <v-card
       flat
-      style="width:100%"
-      color="#1c2331"
+      style="width: 100%"
+      color="secondary"
       class="white--text text-center"
     >
       <v-card-text>
@@ -26,60 +26,54 @@
       </v-card-text>
 
       <v-card-text class="white--text pt-0">
-        <v-row>
-			<v-col cols="12" md="6" sm="12">
-				<v-container class="text-justify">
-					<h1>LOGO.</h1>
-          <br />
-					<p class="body-1">This is the footer description of your app. You can explain about it or simply replace it with something else </p>
-
-				<p class="body-1">Thank you for using our app!</p>
-				</v-container>
-			</v-col>
-      <v-col cols="12" md="3" sm="6">
-				<v-container class="text-justify">
-					<h3 class="title">Quick Links</h3>
-          <nuxt-link to="#" class="body-1 footerLink">Search</nuxt-link><br>
-          <nuxt-link to="/register" class="body-1 footerLink">Register</nuxt-link><br>
-          <nuxt-link to="/login" class="body-1 footerLink">Login</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">Link 1</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">Link 2</nuxt-link>
-				</v-container>
-			</v-col>
-      <v-col cols="12" md="3" sm="6">
-				<v-container class="text-justify">
-					<h3 class="title">Know More</h3>
-          <nuxt-link to="#" class="body-1 footerLink">Terms & Conditions</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">Privacy Policy</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">Refund Policy</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">Contact us</nuxt-link><br>
-          <nuxt-link to="#" class="body-1 footerLink">About us</nuxt-link>
-				</v-container>
-			</v-col>
-		</v-row>
+        <v-container class="text-justify">
+          <h1 class="my-2">AcumenConnect <sup>®</sup></h1>
+          <span v-for="(l, i) in links" :key="i">
+            <nuxt-link :to="l.link" class="body-1 footerLink">{{l.name}}</nuxt-link>&emsp;
+          </span>
+        </v-container>
       </v-card-text>
 
       <v-divider></v-divider>
 
-      <v-card-text class="black--background white--text">©
-        {{ new Date().getFullYear() }} — ✨&nbsp;<strong>My Company | All Rights Reserved!</strong>
+      <v-card-text class="black--background white--text"
+        >© {{ new Date().getFullYear() }} — ✨&nbsp;<strong
+          >AcumenConnect | All Rights Reserved! </strong
+        >| Crafted with ❤ by <a href="https://spotverge.com">Spotverge Inc.</a>
       </v-card-text>
     </v-card>
   </v-footer>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      icons: [
-        {name:'mdi-facebook',link:'https://www.facebook.com/ownearweb'},
-        {name:'mdi-twitter',link:'https://twitter.com/Ownearweb'},
-        {name:'mdi-linkedin',link:'https://www.linkedin.com/company/ownearweb'},
-        {name:'mdi-instagram',link:'https://www.instagram.com/ownearweb/'},
-      ],
-	}),
-  }
+export default {
+  data: () => ({
+    icons: [
+      { name: "mdi-facebook", link: "https://www.facebook.com/ownearweb" },
+      { name: "mdi-twitter", link: "https://twitter.com/Ownearweb" },
+      {
+        name: "mdi-whatsapp",
+        link: "https://www.linkedin.com/company/ownearweb",
+      },
+      { name: "mdi-instagram", link: "https://www.instagram.com/ownearweb/" },
+    ],
+    links: [
+      { name: "Our Team", link: "our-team" },
+      { name: "Press", link: "press" },
+      { name: "Privacy policy", link: "privacy-policy" },
+      { name: "Terms of use", link: "terms-of-use" },
+      { name: "FAQ’s", link: "faqs" },
+      { name: "Security", link: "security" },
+      { name: "Sitemap", link: "sitemap" },
+      { name: "Featured programs", link: "featured-programs" },
+    ],
+  }),
+};
 </script>
 <style>
-.footerLink, .footerLink:link{color:#4f94ff !important; text-underline-offset: 0.2em !important;}
+.footerLink,
+.footerLink:link {
+  color: #fff !important;
+  text-decoration: none !important;
+}
 </style>
